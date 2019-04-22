@@ -1,4 +1,4 @@
-def host;
+int host;
 pipeline {
   agent any
   
