@@ -48,6 +48,7 @@
     unarchive:
       src: /opt/tomcat/apache-tomcat-8.5.37.tar.g
       dest: /opt/tomcat/
+    ignore_errors: yes  
       
   - name: starting apachetomcat service
     systemd:
