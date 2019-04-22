@@ -1,0 +1,57 @@
+---
+- name: About to install apachetomcat
+  hosts: "{{ hosts }}"
+  gather_facts: True
+  become: yes
+  vars_prompt:
+    name: "hosts"
+    prompt: " What is the host IP? example 192.16.0.xxx"
+  
+  tasks:
+  - name: Installing java jdk
+    yum:
+      name: ['java-1.7.0-openjdk-devel''wget']            
+      state: present
+    when: ansible_distrution 'CentOS'
+    
+  - name: Creating a directory for tomcat
+    file:
+      name: ['tomcat']
+      dest: /opt/
+      mode: 0775
+      state: directory
+    
+  - name: Creating tomcat group
+    group:
+      name: ['tomcat']
+      state: present
+      
+  - name: Creating tomcat user
+    user:
+      name: tomcat
+      shell: /bin/bash
+      groups: tomcat
+      append: yes
+    
+  - name: Downloading Tomcat 8 archive
+    get_url:
+      url: https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.37/bin/apache-tomcat-8.5.37.tar.gz
+      dest: /opt/tomcat
+      mode: 0775
+      
+  - name: Extracting apache-tomcat tar.gz
+    unarchive:
+      src: /opt/tomcat/apache-tomcat-8.5.37.tar.g
+      dest: /opt/tomcat/
+      
+  - name: starting apachetomcat service
+    systemd:
+      name: tomcat
+      state: started
+      enabled: yes
+      
+  - name: Opening ports 8080
+    firewalld:
+      port: 8080/tcp
+      permanent: yes
+      state: enabled
