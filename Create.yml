@@ -1,0 +1,9 @@
+- name: generate dh params
+  command: sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048 
+    args: 
+      creates: /etc/ssl/certs/dhparam.pem
+      
+- name: upgrade software
+  command: /opt/software/bin/upgrade 
+    args:
+      removes: etc/software/software.conf.upgrade      
