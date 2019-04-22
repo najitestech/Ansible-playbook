@@ -12,5 +12,10 @@ pipeline {
         sh 'ssh root@192.168.0.119 "ansible-playbook /etc/ansible/apache-tomcat.yml --syntax-check"'
         }
       }
+    stage('Ansible playbook check') {
+      steps {
+        sh 'ssh root@192.168.0.119 "ansible-playbook /etc/ansible/apache-tomcat.yml -C"'
+        }
+      }
     }  
  }
