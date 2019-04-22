@@ -19,10 +19,11 @@
     
   - name: Creating a directory for tomcat
     file:
-      name: tomcat
-      path: /opt/
+      path: /opt/tomcat
+      owner: tomcat
       mode: 0775
       state: directory
+      recurse: yes
     
   - name: Creating tomcat group
     group:
