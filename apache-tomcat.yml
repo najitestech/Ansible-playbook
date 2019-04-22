@@ -3,7 +3,7 @@
   hosts: "{{ hosts }}"
   gather_facts: True
   become: yes
-  raw_input:
+  vars_prompt:
     name: "hosts"
     prompt: " What is the host IP? example 192.16.0.xxx"
     private: no
