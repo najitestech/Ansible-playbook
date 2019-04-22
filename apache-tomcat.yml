@@ -1,12 +1,14 @@
 ---
 - name: About to install apachetomcat
-  hosts: terraform
+  hosts: najite
   gather_facts: True
   become: yes
   vars_prompt:
     name: "hosts"
     prompt: " What is the host IP? example 192.16.0.xxx"
     private: no
+  vars:
+    password: $1$p85kRNB8$2q/bDJJzFXZ92tYsQ310K.
   
   tasks:
   - name: Installing java jdk
@@ -33,13 +35,13 @@
       shell: /bin/bash
       groups: tomcat
       append: yes
+      password: "{{ password }}"
     
   - name: Downloading Tomcat 8 archive
     get_url:
       url: https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.37/bin/apache-tomcat-8.5.37.tar.gz
       dest: /opt/tomcat
       mode: 0775
-      state: present
       
   - name: Extracting apache-tomcat tar.gz
     unarchive:
