@@ -3,10 +3,10 @@
   hosts: najite
   gather_facts: True
   become: yes
-  vars_prompt:
-    name: "hosts"
-    prompt: " What is the host IP? example 192.16.0.xxx"
-    private: no
+#  vars_prompt:
+#    name: "hosts"
+#    prompt: " What is the host IP? example 192.16.0.xxx"
+#    private: no
   vars:
     password: $1$p85kRNB8$2q/bDJJzFXZ92tYsQ310K.
   
