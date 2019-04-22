@@ -13,7 +13,7 @@
     yum:
       name: ['java-1.7.0-openjdk-devel','wget']            
       state: present
-    when: ansible_distribution "CentOS"
+    when: ansible_distribution == "CentOS"
     
   - name: Creating a directory for tomcat
     file:
