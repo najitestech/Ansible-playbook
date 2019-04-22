@@ -1,4 +1,4 @@
-def host = 192.168.0.119;
+def host = [192.168.0.119]
 pipeline {
   agent any
   
