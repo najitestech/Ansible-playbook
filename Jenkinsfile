@@ -24,7 +24,7 @@ pipeline {
       }
     stage('Cleaning Ansible Playbook') {
       steps {
-        sh 'ssh root@192.168.0.119 "rm -rf /etc/ansible/apache-tomcat.yml"'
+        sh 'ssh root@192.168.0.119 "rm -rf /etc/ansible/*apache-tomcat*"'
         }
       }
     }  
