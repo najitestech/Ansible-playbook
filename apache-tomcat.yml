@@ -40,14 +40,14 @@
     
   - name: Downloading Tomcat 8 archive
     get_url:
-      url: https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.37/bin/apache-tomcat-8.5.37.tar.gz
+      url: https://www-eu.apache.org/dist/tomcat/tomcat-9/v9.0.14/bin/apache-tomcat-9.0.14.tar.gz
       dest: /opt/tomcat
       mode: 0775
     ignore_errors: yes  
       
   - name: Extracting apache-tomcat tar.gz
     unarchive:
-      src: /opt/tomcat/apache-tomcat-8.5.37.tar.g
+      src: /opt/tomcat/apache-tomcat-9.0.14.tar.gz
       dest: /opt/tomcat/
     ignore_errors: yes  
       
