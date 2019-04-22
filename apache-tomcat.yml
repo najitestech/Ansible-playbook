@@ -57,7 +57,6 @@
       path: /opt/tomcat/conf/tomcat-users.xml
       regexp: '^# port for http'
       insertbefore: '<tomcat-users>'
-      ignore_errors: yes
       line: '
           <!-- User linuxtechi who can access only manager section -->
           <role rolename="manager-gui" />
