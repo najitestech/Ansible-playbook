@@ -20,7 +20,7 @@
   - name: Creating a directory for tomcat
     file:
       name: tomcat
-      dest: /opt
+      path: /opt/
       mode: 0775
       state: directory
     
