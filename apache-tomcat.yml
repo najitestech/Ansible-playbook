@@ -46,9 +46,10 @@
     ignore_errors: yes  
       
   - name: Extracting apache-tomcat tar.gz
-    unarchive:
+    unarchive:     #cd /opt/tomcat tar -xf apache-tomcat-9.0.19.tar.gz
       src: /opt/tomcat/apache-tomcat-9.0.19.tar.gz
       dest: /opt/tomcat/
+      extra_opts: [--strip-components=1]
     ignore_errors: yes  
       
   - name: starting apachetomcat service
