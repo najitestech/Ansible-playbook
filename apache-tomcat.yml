@@ -39,6 +39,7 @@
       url: https://www-eu.apache.org/dist/tomcat/tomcat-8/v8.5.37/bin/apache-tomcat-8.5.37.tar.gz
       dest: /opt/tomcat
       mode: 0775
+      state: present
       
   - name: Extracting apache-tomcat tar.gz
     unarchive:
