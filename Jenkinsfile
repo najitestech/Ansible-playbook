@@ -5,7 +5,7 @@ pipeline {
   stages {
     stage('Copying playbook') {
       steps {
-        host = '192.168.0.119'
+        _host = '192.168.0.119'
         sh ' scp ./apache-tomcat.yml root@$host:/etc/ansible'
         }
       }
