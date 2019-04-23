@@ -74,4 +74,4 @@
       state: enabled
  
   - name: Reloading firewalld service
-    command: sudo firewall-cmd --reload
+    shell: sudo firewall-cmd --reload
