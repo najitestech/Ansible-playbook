@@ -1,12 +1,11 @@
-def name;
+def _name = '192.168.0.119';
 pipeline {
   agent any
   
   stages {
     stage('Copying playbook') {
       steps {
-        name = '192.168.0.119'
-        sh ' scp ./apache-tomcat.yml root@$host:/etc/ansible'
+        sh ' scp ./apache-tomcat.yml root@$name:/etc/ansible'
         }
       }
     stage('Ansible syntax check') {
