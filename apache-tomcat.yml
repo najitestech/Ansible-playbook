@@ -13,7 +13,7 @@
   tasks:
   - name: Installing java jdk
     yum:
-      name: ['java-1.7.0-openjdk-devel','wget']            
+      name: ['java-1.8.0-openjdk-devel','wget']            
       state: present
     when: ansible_distribution == "CentOS"
     
