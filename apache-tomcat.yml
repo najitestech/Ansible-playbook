@@ -55,6 +55,7 @@
     
   - name: Renaming apache-tomcat-9.0.19
     command: mv /opt/tomcat/apache-tomcat-9.0.19 /opt/tomcat/tomcat9
+    when: False
     
 #  - name: Configuring CATALINA_HOME
 #    shell: "{{ item }}"
