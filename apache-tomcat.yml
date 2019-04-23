@@ -81,3 +81,4 @@
     file:
       state: absent
       path: /opt/tomcat/apache-tomcat-9.0.19.tar.gz
+    when: True  
