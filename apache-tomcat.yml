@@ -58,7 +58,7 @@
     when: True
         
   - name: starting apachetomcat service
-    shell: cd /opt/tomcat/tomcat9 ./bin/startup.sh 
+    shell: cd /opt/tomcat/tomcat9 && ./bin/startup.sh 
     ignore_errors: yes  
       
   - name: Opening ports 8080
