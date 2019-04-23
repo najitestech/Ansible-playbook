@@ -72,3 +72,6 @@
       port: 8080/tcp
       permanent: yes
       state: enabled
+ 
+  - name: Reloading firewalld service
+    command: sudo firewall-cmd --reload
