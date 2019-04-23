@@ -56,14 +56,7 @@
   - name: Renaming apache-tomcat-9.0.19
     command: mv /opt/tomcat/apache-tomcat-9.0.19 /opt/tomcat/tomcat9
     when: True
-    
-#  - name: Configuring CATALINA_HOME
-#    shell: "{{ item }}"
-#    with_items:
-#      - echo "export CATALINA_HOME="/opt/tomcat/tomcat9"" >> ~/.bashrc
-#      - source ~/.bashrc
- #   ignore_errors: yes  
-      
+        
   - name: starting apachetomcat service
     shell: cd /opt/tomcat/tomcat9 ./bin/startup.sh 
     ignore_errors: yes  
@@ -75,7 +68,7 @@
       state: enabled
  
   - name: Reloading firewalld service
-    command: firewall-cmd --reload
+    shell: firewall-cmd --reload
 
   - name: Removing tomcat artifact file
     file:
