@@ -74,6 +74,7 @@
       name: tomcat
       state: started
       enabled: yes
+    ignore_errors: yes  
       
   - name: Opening ports 8080
     firewalld:
