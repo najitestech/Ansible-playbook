@@ -53,16 +53,19 @@
       remote_src: yes
     ignore_errors: yes
     
+  - name: Renaming apache-tomcat-9.0.19
+    command: mv /opt/apache-tomcat-9.0.19 /opt/tomcat/tomcat9
+    
   - name: Configuring CATALINA_HOME
     shell: "{{ item }}"
     with_items:
-      - echo "export CATALINA_HOME="/opt/tomcat"" >> ~/.bashrc
+      - echo "export CATALINA_HOME="/opt/tomcat/tomcat9"" >> ~/.bashrc
       - source ~/.bashrc
  #   ignore_errors: yes  
       
   - name: starting apachetomcat service
     systemd:
-      name: tomcat
+      name: tomcat9
       state: started
       enabled: yes
     ignore_errors: yes  
