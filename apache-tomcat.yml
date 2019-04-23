@@ -76,3 +76,8 @@
  
   - name: Reloading firewalld service
     command: firewall-cmd --reload
+
+  - name: Removing tomcat artifact file
+    file:
+      state: absent
+      path: /opt/tomcat/apache-tomcat-9.0.19.tar.gz
