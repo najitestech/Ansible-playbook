@@ -54,7 +54,7 @@
     ignore_errors: yes
     
   - name: Renaming apache-tomcat-9.0.19
-    command: mv /opt/apache-tomcat-9.0.19 /opt/tomcat/tomcat9
+    command: mv /opt/tomcat/apache-tomcat-9.0.19 /opt/tomcat/tomcat9
     
   - name: Configuring CATALINA_HOME
     shell: "{{ item }}"
