@@ -58,7 +58,6 @@
     with_items:
       - echo "export CATALINA_HOME="/opt/tomcat"" >> ~/.bashrc
       - source ~/.bashrc
-      - /opt/tomcat/bin ./startup.sh 
  #   ignore_errors: yes  
       
   - name: starting apachetomcat service
