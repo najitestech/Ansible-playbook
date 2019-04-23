@@ -1,4 +1,4 @@
-int host = 192.168.0.119()
+int host = 192.168.0.119;
 pipeline {
   agent any
   
