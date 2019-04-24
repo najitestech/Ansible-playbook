@@ -29,5 +29,10 @@ pipeline {
         sh 'ssh root@192.168.0.119 "rm -rf /etc/ansible/*apache-tomcat*"'
         }
       }
+    stage('SUCCESS!!!') {
+      steps {
+        sh 'echo pipeline completed seccesfuly'
+        }
+      }
     }  
  }
