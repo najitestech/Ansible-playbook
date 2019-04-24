@@ -79,12 +79,11 @@
   - name: Inserting manger access
     lineinfile:
       path: /opt/tomcat/tomcat9/conf/Catalina/localhost/manager.xml
-      line: | '
+      line: |
         <Context privileged="true" antiResourceLocking="false" 
                  docBase="${catalina.home}/webapps/manager">
         <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="^.*$" />
         </Context>
-        '
       state: present
     ignore_errors: yes
         
