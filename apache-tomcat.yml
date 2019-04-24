@@ -1,7 +1,7 @@
 ---
 - name: About to install apachetomcat
   hosts: tomcat-server
-  gather_facts: True
+  gather_facts: Fasle
   become: yes
 #  vars_prompt:
 #    name: "hosts"
