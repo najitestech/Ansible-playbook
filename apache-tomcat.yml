@@ -60,7 +60,7 @@
     
   - name: Inserting manger access
     blockinfile:
-      path: /opt/tomcat/tomcat9/conf/Catalina/localhost
+      path: /opt/tomcat/tomcat9/conf/Catalina/localhost/manager.xml
       block: |
         <Context privileged="true" antiResourceLocking="false" 
                  docBase="${catalina.home}/webapps/manager">
