@@ -58,6 +58,15 @@
     command: mv /opt/tomcat/apache-tomcat-9.0.19 /opt/tomcat/tomcat9
     when: True
     
+  - name: Creating a file for tomcat manager
+    file:
+      path: /opt/tomcat/tomcat9/conf/Catalina/localhost/manager.xml
+      owner: tomcat
+      mode: 0775
+      state: touch
+      recurse: yes
+    ignore_errors: yes  
+    
   - name: Inserting manger access
     blockinfile:
       path: /opt/tomcat/tomcat9/conf/Catalina/localhost/manager.xml
