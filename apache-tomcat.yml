@@ -9,6 +9,7 @@
 #    private: no
   vars:
     password: $1$p85kRNB8$2q/bDJJzFXZ92tYsQ310K.
+    user: admin
   
   tasks:
   - name: Installing java jdk
@@ -37,7 +38,7 @@
       shell: /bin/bash
       groups: tomcat
       append: no
-      password: "{{ password }}"
+      password: "{{ password }}"    
     
   - name: Downloading Tomcat 8 archive
     get_url:
@@ -56,6 +57,27 @@
   - name: Renaming apache-tomcat-9.0.19
     command: mv /opt/tomcat/apache-tomcat-9.0.19 /opt/tomcat/tomcat9
     when: True
+    
+  - name: Inserting manger access
+    blockinfile:
+      path: /opt/tomcat/tomcat9/conf/Catalina/localhost
+      block: |
+        <Context privileged="true" antiResourceLocking="false" 
+                 docBase="${catalina.home}/webapps/manager">
+        <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="^.*$" />
+        </Context>
+      state: present  
+        
+  - name: Inserting User access and credentials
+    lineinfile:
+      path: /opt/tomcat/tomcat9/conf/tomcat-users.xml
+      regexp: '^# port for http'
+      insertbefore: '</tomcat-users>' 
+      line: '
+        <role rolename="admin-gui" />
+        <user username="{{ user }}" password="{{ password }}" roles="manager-gui,admin-gui" />
+        '
+      state: present  
         
   - name: starting apachetomcat service
     shell: cd /opt/tomcat/tomcat9 && ./bin/startup.sh
