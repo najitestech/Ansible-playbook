@@ -69,12 +69,7 @@
     ignore_errors: yes   
     
   - name: Creating a file for tomcat manager
-    file:
-      path: /opt/tomcat/tomcat9/conf/Catalina/localhost/manager.xml
-      owner: tomcat
-      mode: 0775
-      state: touch
-      recurse: yes
+    shell: cd /opt/tomcat/tomcat9/conf/Catalina/localhost && touch manager.xml
     ignore_errors: yes
     
   - name: Inserting manger access
