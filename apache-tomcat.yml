@@ -58,7 +58,7 @@
     command: mv /opt/tomcat/apache-tomcat-9.0.19 /opt/tomcat/tomcat9
     when: True
     
-  - name: Creating a Catalina for tomcat 
+  - name: Creating a Catalina folder for tomcat 
     file:
       path: /opt/tomcat/tomcat9/conf/Catalina/localhost/
       owner: tomcat
@@ -74,16 +74,17 @@
       mode: 0775
       state: touch
       recurse: yes
-    ignore_errors: yes  
+    ignore_errors: yes
     
   - name: Inserting manger access
-    copy:
+    lineinfile:
       path: /opt/tomcat/tomcat9/conf/Catalina/localhost/manager.xml
-      content: |
+      line: | '
         <Context privileged="true" antiResourceLocking="false" 
                  docBase="${catalina.home}/webapps/manager">
         <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="^.*$" />
         </Context>
+        '
       state: present
     ignore_errors: yes
         
