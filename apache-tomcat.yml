@@ -58,9 +58,9 @@
     command: mv /opt/tomcat/apache-tomcat-9.0.19 /opt/tomcat/tomcat9
     when: True
     
-  - name: Creating a file for tomcat manager
+  - name: Creating a Catalina for tomcat 
     file:
-      path: /opt/tomcat/tomcat9/conf/Catalina
+      path: /opt/tomcat/tomcat9/conf/Catalina/localhost/
       owner: tomcat
       mode: 0775
       state: directory
