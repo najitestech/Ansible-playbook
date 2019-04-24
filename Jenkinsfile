@@ -3,7 +3,7 @@ pipeline {
   agent any
   
   stages {
-    stage('Copying playbook') {
+    stage('Copying playbook for tomcat') {
       steps {
         echo 'hoest: ${host}'
         sh 'scp ./apache-tomcat.yml root@192.168.0.119:/etc/ansible'
@@ -19,7 +19,7 @@ pipeline {
         sh 'ssh root@192.168.0.119 "ansible-playbook /etc/ansible/apache-tomcat.yml -C"'
         }
       }
-    stage('Executing ansible playbook') {
+    stage('Executing ansible playbookfor for tomcat') {
       steps {
         sh 'ssh root@192.168.0.119 "ansible-playbook /etc/ansible/apache-tomcat.yml"'
         }
