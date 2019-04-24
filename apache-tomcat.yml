@@ -60,6 +60,15 @@
     
   - name: Creating a file for tomcat manager
     file:
+      path: /opt/tomcat/tomcat9/conf/Catalina
+      owner: tomcat
+      mode: 0775
+      state: directory
+      recurse: yes
+    ignore_errors: yes   
+    
+  - name: Creating a file for tomcat manager
+    file:
       path: /opt/tomcat/tomcat9/conf/Catalina/localhost/manager.xml
       owner: tomcat
       mode: 0775
