@@ -10,6 +10,7 @@
   vars:
     password: $1$p85kRNB8$2q/bDJJzFXZ92tYsQ310K.
     user: admin
+    password: 12345
   
   tasks:
   - name: Installing java jdk
@@ -82,8 +83,8 @@
       line: |
         <Context privileged="true" antiResourceLocking="false" 
              docBase="${catalina.home}/webapps/manager">
-    <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="^.*$" />
-    </Context>
+      <Valve className="org.apache.catalina.valves.RemoteAddrValve" allow="^.*$" />
+      </Context>
       state: present
     ignore_errors: yes
         
@@ -94,7 +95,7 @@
       insertbefore: '</tomcat-users>' 
       line: |
         <role rolename="admin-gui" />
-    <user username="{{ user }}" password="{{ password }}" roles="manager-gui,admin-gui" />
+      <user username="{{ user }}" password="{{ password }}" roles="manager-gui,admin-gui" />
         
       state: present
     ignore_errors: yes
