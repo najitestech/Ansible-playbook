@@ -1,0 +1,41 @@
+def host = '192.168.0.119'
+pipeline {
+  agent any
+  environment { 
+      hoest = 'clang'
+    }
+  
+  stages {
+    stage('Stage 1') {
+      steps {
+        echo 'hoest: ${host}'
+        sh 'echo example 1'
+        }
+      }
+    stage('Stage 2') {
+      steps {
+        sh 'echo example 2'
+        }
+      }
+    stage('Stage 3') {
+      steps {
+        sh 'echo example 3'
+        }
+      }
+    stage('Stage 4') {
+      steps {
+        sh 'example 4'
+        }
+      }
+    stage('Stage 5') {
+      steps {
+        sh 'example 5'
+        }
+      }
+    stage('Stage 6 SUCCESS!!!') {
+      steps {
+        sh 'echo pipeline completed seccesfuly'
+        }
+      }
+    }  
+ }
