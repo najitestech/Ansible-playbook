@@ -2,13 +2,13 @@
 pipeline {
   agent any
   parameters {
-        string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
+        string(name: 'host', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
     }
   
   stages {
     stage('Stage 1') {
       steps {
-        echo "Hello, ${PERSON}, nice to meet you."
+        echo "Hello, ${host}, nice to meet you."
         sh 'echo example 1'
         }
       }
