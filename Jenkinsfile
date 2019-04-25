@@ -1,10 +1,9 @@
 pipeline {
+  agent any
   environment {
         ansible = "192.168.0.119"
         tomcat = "192.168.0.21"
-    }
-  agent any
-  
+    }  
   stages {
     stage('Copying playbook for tomcat') {
       steps {
