@@ -14,7 +14,7 @@ pipeline {
       }
     stage('Stage 2') {
       steps {
-        sh 'echo example 2'
+        sh 'ssh root@${HOST}'
         }
       }
     stage('Stage 3') {
