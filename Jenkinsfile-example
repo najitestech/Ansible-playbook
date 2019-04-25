@@ -14,12 +14,12 @@ pipeline {
       }
     stage('Stage 2') {
       steps {
-        sh 'echo hello ${HOST} //scp ./apache-tomcat.yml root@${HOST}:/'
+        sh 'scp ./apache-tomcat.yml root@${HOST}:/'
         }
       }
     stage('Stage 3') {
       steps {
-        sh 'ssh root@${HOST} rm /apache-tomcat.yml'
+        sh 'echo hello ${HOST} //ssh root@${HOST} rm /apache-tomcat.yml'
         }
       }
     stage('Stage 4') {
