@@ -7,7 +7,7 @@ pipeline {
   stages {
     stage('Copying playbook for tomcat') {
       steps {
-        echo '$host'
+        sh 'echo $host'
         sh 'scp ./apache-tomcat.yml root@$ansible:/etc/ansible'
         }
       }
