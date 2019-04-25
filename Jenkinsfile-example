@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Stage 1') {
       steps {
-        echo 'hoest: ${host}'
+        echo 'hoest: "$host"'
         sh 'echo example 1'
         }
       }
