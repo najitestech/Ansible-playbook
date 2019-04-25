@@ -1,6 +1,7 @@
 pipeline {
   environment {
         ansible = "192.168.0.119"
+        tomcat = "192.168.0.21"
     }
   agent any
   
@@ -33,6 +34,7 @@ pipeline {
       }
     stage('SUCCESS!!!') {
       steps {
+        sh 'ssh root@$tomcat "cd /opt/tomcat/tomcat9 && ./bin/startup.sh"'
         sh 'echo pipeline completed seccesfuly'
         }
       }
