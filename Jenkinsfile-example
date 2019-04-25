@@ -3,7 +3,6 @@ pipeline {
   agent any
   parameters {
         string(name: 'HOST', defaultValue: '192.168.0.119', description: 'What is the host IP ?')
-        password(name: 'PASSWORD', defaultValue: 'SECRET', description: 'Enter a password')
     }
   
   stages {
