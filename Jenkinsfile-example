@@ -19,7 +19,7 @@ pipeline {
       }
     stage('Stage 3') {
       steps {
-        sh 'echo hello ${HOST} //ssh root@${HOST} rm /apache-tomcat.yml'
+        sh 'ssh root@${HOST} rm /apache-tomcat.yml'
         }
       }
     stage('Stage 4') {
