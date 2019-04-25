@@ -1,9 +1,15 @@
 //def host = '192.168.0.119'
 pipeline {
-  agent any
-  parameters {
-        string(name: 'HOST', defaultValue: '192.168.0.119', description: 'What is the host IP ?')
+  agent any {
+  docker {
+        image 'maven:3-alpine'
+        label 'my-defined-label'
+        args  '-v /tmp:/tmp'
     }
+}
+//  parameters {
+  //      string(name: 'HOST', defaultValue: '192.168.0.119', description: 'What is the host IP ?')
+    //}
   
   stages {
     stage('Stage 1') {
