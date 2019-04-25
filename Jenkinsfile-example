@@ -14,7 +14,7 @@ pipeline {
       }
     stage('Stage 2') {
       steps {
-        sh 'scp ./apache-tomcat.yml root@${HOST}:/'
+        sh 'echo hello ${HOST} //scp ./apache-tomcat.yml root@${HOST}:/'
         }
       }
     stage('Stage 3') {
