@@ -1,5 +1,7 @@
-//def host = '192.168.0.119'
 pipeline {
+  environment {
+        HOST = "192.168.0.119"
+    }
   agent any
 //  parameters {
   //      string(name: 'HOST', defaultValue: '192.168.0.119', description: 'What is the host IP ?')
