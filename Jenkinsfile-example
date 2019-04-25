@@ -2,7 +2,7 @@
 pipeline {
   agent any
   parameters {
-        string(name: 'PERSON', John:)
+        string(name: 'PERSON', John)
     }
   
   stages {
