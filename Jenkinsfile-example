@@ -1,10 +1,10 @@
 //def host = '192.168.0.119'
 pipeline {
-  agent any {
-  docker {
-        image 'maven:3-alpine'
-        label 'my-defined-label'
-        args  '-v /tmp:/tmp'
+  agent {
+      docker {
+          image 'maven:3-alpine'
+          label 'my-defined-label'
+          args  '-v /tmp:/tmp'
     }
 }
 //  parameters {
