@@ -1,6 +1,10 @@
 //def host = '192.168.0.119'
 pipeline {
-  agent { docker image 'maven:3-alpine' }
+  agent { 
+      docker {
+          image 'maven:3-alpine' 
+          args  '-v /tmp:/tmp'
+      }
 //  parameters {
   //      string(name: 'HOST', defaultValue: '192.168.0.119', description: 'What is the host IP ?')
     //}
@@ -39,3 +43,4 @@ pipeline {
       }
     }  
  }
+}
