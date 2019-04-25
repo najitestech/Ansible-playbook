@@ -10,7 +10,6 @@ pipeline {
       steps {
         echo 'hoest: ${host}'
         sh 'echo example 1'
-        sh 'mvn clean test'
         }
       }
     stage('Stage 2') {
