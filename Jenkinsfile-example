@@ -2,7 +2,7 @@
 pipeline {
   agent any
   parameters {
-        string(name: 'HOST', defaultValue: '192.168.0.119', description: 'What's the host IP ?')
+        string(name: 'HOST', defaultValue: '192.168.0.119', description: 'What is the host IP ?')
     }
   
   stages {
