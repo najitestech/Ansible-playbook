@@ -19,7 +19,7 @@ pipeline {
       }
     stage('Stage 3') {
       steps {
-        sh 'echo example 3'
+        sh 'ssh root@${HOST} rm /etc/ansible/apache-tomcat.yml'
         }
       }
     stage('Stage 4') {
