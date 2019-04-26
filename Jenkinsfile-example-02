@@ -30,7 +30,7 @@ pipeline {
     stage('Deploy') {
       steps {
         withMaven(maven : 'maven-3.6.1') {
-            sh 'scp -o StrictHostKeyChecking=no target root@$webserver:/'
+            sh 'scp -r -o StrictHostKeyChecking=no target root@$webserver:/'
             }
          }
       }    
