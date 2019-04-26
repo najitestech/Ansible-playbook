@@ -8,8 +8,7 @@ pipeline {
   stages {
     stage('Compile') {
       steps {
-      //def mvnHome = tool name: 'maven-3.6.1', type: 'maven'
-        withMaven(maven : 'maven-3.6.1', type: 'maven') {
+        withMaven(maven : 'maven-3.6.1') {
             sh "${mvnHome}/bin/clean test"
             }
         }
@@ -31,8 +30,8 @@ pipeline {
     stage('Deploy') {
       steps {
         withMaven(maven : 'maven-3.6.1') {
-            //sh 'scp -r -o StrictHostKeyChecking=no target root@$webserver:/'
-            sh 'scp -r -o StrictHostKeyChecking=no target root@$tomcat:/'
+            sh 'scp -r -o StrictHostKeyChecking=no target root@$webserver:/'
+            //sh 'scp -r -o StrictHostKeyChecking=no target root@$tomcat:/'
             }
          }
       }
