@@ -1,0 +1,37 @@
+pipeline {
+  agent any
+  environment {
+        ansible = "192.168.0.119"
+        tomcat = "192.168.0.21"
+    }  
+  stages {
+    stage('Compile') {
+      steps {
+        withMaven(maven : 'maven-3.6.1') {
+            sh 'mvn clean compile'
+            }
+        }
+    }
+    stage('Testing') {
+      steps {
+        withMaven(maven : 'maven-3.6.1') {
+            sh 'mvn test'
+            }
+        }
+    }
+    stage('Build') {
+      steps {
+        withMaven(maven : 'maven-3.6.1') {
+            sh 'mvn package'
+            }
+        }
+    } 
+    stage('Deploy') {
+      steps {
+        withMaven(maven : 'maven-3.6.1') {
+            sh 'mvn deploy'
+            }
+         }
+      }    
+   }
+}  
