@@ -10,7 +10,7 @@ pipeline {
       steps {
       def mvnHome = tool name: 'maven-3.6.1', type: 'maven'
         //withMaven(maven : 'maven-3.6.1') {
-            sh "${mvnHome}/bin/clean compile"
+            sh "${mvnHome}/bin/clean test"
             }
         }
   //  }
