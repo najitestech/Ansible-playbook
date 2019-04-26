@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Compile') {
       steps {
-        withMaven(maven : 'maven-3.6.1') {
+        withMaven(maven : tool name: 'maven-3.6.1', type: 'maven') {
             sh 'mvn clean compile'
             }
         }
