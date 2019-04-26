@@ -7,9 +7,9 @@ pipeline {
     }  
   stages {
     stage('Compile') {
-    def mvnHome = tool name: 'maven-3.6.1', type: 'maven'
       steps {
-        withMaven(maven : 'maven-3.6.1') {
+        def mvnHome = tool name: 'maven-3.6.1', type: 'maven'
+        //withMaven(maven : 'maven-3.6.1') {
             sh 'mvn clean compile'
             }
         }
