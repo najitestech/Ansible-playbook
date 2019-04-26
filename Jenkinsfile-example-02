@@ -4,16 +4,16 @@ pipeline {
         ansible = "192.168.0.119"
         tomcat = "192.168.0.21"
         webserver = "35.237.255.73"
+        def mvnHome = tool name: 'maven-3.6.1', type: 'maven'
     }  
   stages {
     stage('Compile') {
-      def mvnHome = tool name: 'maven-3.6.1', type: 'maven'
       steps {
-        //withMaven(maven : 'maven-3.6.1') {
+        withMaven(maven : 'maven-3.6.1') {
             sh 'mvn clean compile'
             }
         }
-  //  }
+    }
     stage('Testing') {
       steps {
         withMaven(maven : 'maven-3.6.1') {
