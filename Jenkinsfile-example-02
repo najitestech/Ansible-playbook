@@ -8,7 +8,7 @@ pipeline {
   stages {
     stage('Compile') {
       steps {
-        withMaven(maven : 'maven-2.6.1') {
+        withMaven(maven : 'maven-3.6.1') {
             sh 'mvn clean compile'
             }
         }
