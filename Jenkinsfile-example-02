@@ -3,6 +3,7 @@ pipeline {
   environment {
         ansible = "192.168.0.119"
         tomcat = "192.168.0.21"
+        webserver = "35.237.255.73"
     }  
   stages {
     stage('Compile') {
@@ -29,7 +30,7 @@ pipeline {
     stage('Deploy') {
       steps {
         withMaven(maven : 'maven-3.6.1') {
-            sh 'mvn deploy'
+            sh 'mvn deploy root@$webserver:/'
             }
          }
       }    
