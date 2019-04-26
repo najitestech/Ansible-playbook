@@ -8,12 +8,12 @@ pipeline {
   stages {
     stage('Compile') {
       steps {
-      mvnHome = tool name: 'maven-3.6.1', type: 'maven'
-        //withMaven(maven : 'maven-3.6.1') {
+      //def mvnHome = tool name: 'maven-3.6.1', type: 'maven'
+        withMaven(maven : 'maven-3.6.1', type: 'maven') {
             sh "${mvnHome}/bin/clean test"
             }
         }
-  //  }
+    }
     stage('Testing') {
       steps {
         withMaven(maven : 'maven-3.6.1') {
