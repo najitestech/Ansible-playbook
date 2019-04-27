@@ -7,8 +7,8 @@ pipeline {
   stages {
     stage('Copying playbook for tomcat') {
       steps {
-        withMaven(maven : 'maven-3.6.1') {
-                sh 'mvn clean compile'
+      //  withMaven(maven : 'maven-3.6.1') {
+       //         sh 'mvn clean compile'
         sh 'echo $host'
         sh 'scp ./apache-tomcat.yml root@$ansible:/etc/ansible'
         }
