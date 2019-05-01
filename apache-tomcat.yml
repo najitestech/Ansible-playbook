@@ -1,6 +1,6 @@
 ---
 - name: About to install apachetomcat
-  hosts: tomcat-server2
+  hosts: tomcat-server
   gather_facts: True
   become: yes
 #  vars_prompt:
